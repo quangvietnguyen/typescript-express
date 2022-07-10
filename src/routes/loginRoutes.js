@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
-var express_1 = require("express");
+var AppRouter_1 = require("../AppRouter");
 function requireAuth(req, res, next) {
     if (req.session && req.session.loggedIn) {
         next();
@@ -10,7 +10,7 @@ function requireAuth(req, res, next) {
     res.status(403);
     res.send('Not permitted');
 }
-var router = (0, express_1.Router)();
+var router = AppRouter_1.AppRouter.router;
 exports.router = router;
 router.post('/login', function (req, res) {
     var _a = req.body, email = _a.email, password = _a.password;
